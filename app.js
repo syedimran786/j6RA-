@@ -204,7 +204,7 @@ console.log(s.length);
 // console.log(s.charAt(3));
 // console.log(s.charAt(6));
 
-
+// m1();
 //! charCodeAt(arg1)
 //? 1.It is used to fetch ASCII value of character present at particular index
 //? 2.It accepts 1 argument
@@ -243,7 +243,25 @@ console.log(s1);
 //? 6.The splitted character or string will be stored inside an array as elements
 
 
-console.log(s.split());
-console.log(s.split(""));
-console.log(s.split("l"));
-console.log(s.split("o"))
+// console.log(s.split());
+// console.log(s.split(""));
+// console.log(s.split("l"));
+// console.log(s.split("o"))
+
+
+//! Hoisting
+//? The Process of Moving variable declaration and function declarations
+//? to the top of its scope before execution of a program
+
+console.log(a);
+let a="leela";
+console.log(a);
+
+// function m1()
+// {
+//     // var b
+//     console.log(b)
+//     var b="laila";
+//     console.log(b);
+// }
+
