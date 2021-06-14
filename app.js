@@ -49,10 +49,10 @@
 //! Strings and Strings Methods 
 // Collection of 2 or more characters enclosed inside "",'',``
 
-let s=`Hello World`;
+// let s=`Hello World`;
 
-console.log(s);
-console.log(s.length);
+// console.log(s);
+// console.log(s.length);
 
 // console.log(s.toUpperCase());
 // console.log(s.toLowerCase());
@@ -225,8 +225,8 @@ console.log(s.length);
 // console.log(String.fromCharCode(65));
 // console.log(String.fromCharCode(37));
 
-let s1="     Hello     Bangalore     ";
-console.log(s1);
+// let s1="     Hello     Bangalore     ";
+// console.log(s1);
 
 //! trim()
 //? 1.Used to remove the spaces from starting and ending of a string
@@ -250,12 +250,12 @@ console.log(s1);
 
 
 //! Hoisting
-//? The Process of Moving variable declaration and function declarations
+//? 1.The Process of Moving variable declaration and function declarations
 //? to the top of its scope before execution of a program
-
-console.log(a);
-let a="leela";
-console.log(a);
+//? Hoisting is possible only in case of var keyword
+// console.log(a);
+// let a="leela";
+// console.log(a);
 
 // function m1()
 // {
@@ -265,3 +265,72 @@ console.log(a);
 //     console.log(b);
 // }
 
+//! Spread Operator(...) and rest parameter(...)
+
+// let a=[22,33,55,78,45,87];
+
+// console.log("A : "+ a);
+
+// let b=[...a];
+// console.log(b)
+// console.log("B : "+b);
+
+// b.push("Raja");
+// console.log("A : "+ a);
+// console.log("B : "+b);
+
+// console.log(Math.min(...a));
+// console.log(Math.min(22,33,55,78,45,87))
+
+// let student={sname:"Dinga",age:34};
+// let employee={...student};
+
+// console.log(student);
+// console.log(employee);
+
+// employee.marks=420;
+
+// console.log(student);
+// console.log(employee);
+
+
+// function m1(a,c,...b)
+// {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c)
+// }
+
+// m1(2,6,4,7,8);
+
+//! Destructuring of Arrays
+// let colors=["red","green","blue",'white',"pink"];
+
+
+// let [r,g,b,w,p]=colors;
+
+// let [r,g,,w,p]=colors;
+
+// let [r,g,...c]=colors;
+
+// console.log(c);
+
+
+//! Destructuring of Objects
+
+let student={sname:"Dinga",age:34,marks:567,gender:"Male",dept:"cse"};
+
+// // let {sname,gender,marks,dept}=student;
+// // let {sname,gender,...details}=student;
+// let {sname:StudentName,gender,...details}=student;
+
+// console.log(sname);
+
+function  studentdetails({sname,dept})
+{
+    console.log(sname);
+    console.log(dept)
+}
+
+
+studentdetails(student)
