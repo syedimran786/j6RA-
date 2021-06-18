@@ -318,7 +318,7 @@
 
 //! Destructuring of Objects
 
-let student={sname:"Dinga",age:34,marks:567,gender:"Male",dept:"cse"};
+// let student={sname:"Dinga",age:34,marks:567,gender:"Male",dept:"cse"};
 
 // // let {sname,gender,marks,dept}=student;
 // // let {sname,gender,...details}=student;
@@ -326,11 +326,169 @@ let student={sname:"Dinga",age:34,marks:567,gender:"Male",dept:"cse"};
 
 // console.log(sname);
 
-function  studentdetails({sname,dept})
-{
-    console.log(sname);
-    console.log(dept)
-}
+// function  studentdetails({sname,dept})
+// {
+//     console.log(sname);
+//     console.log(dept)
+// }
 
 
-studentdetails(student)
+// studentdetails(student)
+
+
+//! DOM---> Document Object Model
+
+//! Important Dom Methods to fetch HTMl elements
+
+/**
+ * ? 1.getElementById("Id_name");
+ * ? 2.getElementsByClassName("classNames")
+ * ? 3.getElementsByTagName("TagName")
+ * ? 4.querySelector("selectors")
+ * ? 5.querySelectorAll("selectors")
+ */
+
+// let res=document.getElementById("id1");
+
+// res.style.color="hotpink"
+
+
+
+// let div=document.querySelector("div");
+
+// console.log(div)
+
+
+
+// let  images=
+// [
+//     "https://cdn.pixabay.com/photo/2021/01/28/08/51/girl-5957398__340.jpg",
+//     "https://cdn.pixabay.com/photo/2021/04/29/11/40/big-ben-6216420__340.jpg",
+//     "https://cdn.pixabay.com/photo/2020/07/03/10/28/waterfall-5365926__340.jpg",
+//     "https://cdn.pixabay.com/photo/2021/06/07/14/05/grey-heron-6318054__340.jpg",
+//     "https://cdn.pixabay.com/photo/2020/06/18/18/48/highway-5314645__340.jpg",
+//     "https://cdn.pixabay.com/photo/2021/05/06/10/28/cygnets-6233080__340.jpg",
+//     "https://cdn.pixabay.com/photo/2018/03/25/09/57/cute-3258931__340.jpg",
+//     "https://cdn.pixabay.com/photo/2021/06/04/15/51/coast-6310250__340.jpg",
+//     "https://cdn.pixabay.com/photo/2021/04/09/22/03/strawberries-6165597__340.jpg"
+
+// ];
+
+
+// for(let image of images) {
+    
+//     let img=document.createElement("img");
+//     img.src=image;
+//     img.height=250;
+//     img.width=250;
+//     div.append(img);
+// }
+
+
+// for(let image of images) {
+//     let div=document.getElementById("myImages");
+//     div.innerHTML+=`
+//     <img src='${image}' height=300px width=300px>
+    
+//     `
+
+   
+// }
+
+// let div=document.getElementById("myImages");
+// for(let i=0;i<images.length;i++)
+// {
+//     let img=document.createElement("img");
+//     img.src=images[i];
+//     if(i===3 || i===6)
+//     {
+//         img.height=450;
+//         img.width=450;
+//         div.append(img);
+//         continue;
+//     }
+//     img.height=250;
+//     img.width=250;
+//     div.append(img);
+// }
+
+// ! Synchronous and Asynchronous 
+
+// console.log("I Am the first person");
+
+// setTimeout(()=>
+// {
+//     console.log("I Am the second person");
+// },3000);
+
+// console.log("I Am the third person");
+
+//! to handle asynchronous type of data (CALLBACK,PROMISES,ASYNC and AWAIT) ;
+
+
+// let a=20;
+
+// let p=new Promise((resolve,reject)=>
+// {
+//     if(a==20)
+//     {
+//         resolve("Promise is resolved")
+//     }
+//     else
+//     {
+//         reject("The promise is rejected")
+//     }
+// });
+
+
+// console.log(p)
+// p.
+// then(resData=>
+//     {
+//         return "Yess "+resData
+//     }).
+//     then(changedData=>
+//         {
+//             console.log(changedData)
+//         }).
+//     catch(
+//         err=>
+//     {
+//         console.log(err)
+//     }
+//     ).
+//     finally(()=>
+//     {
+//         console.log("I always runs")
+//     });
+    
+
+//! Fetching Real tie API's
+
+let myUsers=fetch("https://api.github.com/users");
+
+// console.log(myUsers)
+
+myUsers.
+then(apiData=>
+    {
+        console.log(apiData);
+        return apiData.json();
+    }).
+    then(users=>
+        {
+            // console.log(users);
+            let div=document.getElementById("myImages");
+            for(let user of users) {
+                // console.log(user)
+               
+                let img=document.createElement("img");
+                img.src=user.avatar_url;
+
+                div.append(img) 
+            }
+            
+        }).catch(err=>
+            {
+                console.log(err)
+            })
