@@ -465,30 +465,63 @@
 
 //! Fetching Real tie API's
 
-let myUsers=fetch("https://api.github.com/users");
+// let myUsers=fetch("https://api.github.com/users");
 
-// console.log(myUsers)
+// // console.log(myUsers)
 
-myUsers.
-then(apiData=>
+// myUsers.
+// then(apiData=>
+//     {
+//         console.log(apiData);
+//         return apiData.json();
+//     }).
+//     then(users=>
+//         {
+//             // console.log(users);
+//             let div=document.getElementById("myImages");
+//             for(let user of users) {
+//                 // console.log(user)
+               
+//                 let img=document.createElement("img");
+//                 img.src=user.avatar_url;
+
+//                 div.append(img);
+//             }
+            
+//         }).catch(err=>
+//             {
+//                 console.log(err)
+//             });
+
+
+//! async and await
+
+
+
+async function myusers()
+{
+
+    try
     {
-        console.log(apiData);
-        return apiData.json();
-    }).
-    then(users=>
-        {
-            // console.log(users);
-            let div=document.getElementById("myImages");
-            for(let user of users) {
-                // console.log(user)
+        let users=await fetch("https://api.github.com/users");
+
+    let gitusers=await users.json()
+    let div=document.getElementById("myImages");
+            for(let user of gitusers) {
+             
                
                 let img=document.createElement("img");
                 img.src=user.avatar_url;
 
-                div.append(img) 
+                div.append(img);
             }
-            
-        }).catch(err=>
-            {
-                console.log(err)
-            })
+            console.log(gitusers)
+    }
+  catch(err)
+  {
+      console.log(err)
+  }
+
+}
+
+myusers();
